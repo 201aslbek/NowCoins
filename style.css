@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+body {
+    background: #0d1117; /* To'q ko'k-qora fon */
+    color: white;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Elementlarni teng tarqatadi */
+    padding: 20px;
+}
+
+/* Profil Bar */
+.user-bar {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.user-avatar { width: 42px; height: 42px; border-radius: 12px; overflow: hidden; background: #21262d; }
+.user-avatar img { width: 100%; height: 100%; object-fit: cover; }
+#display-name { font-size: 14px; font-weight: 600; }
+.user-id-label { font-size: 11px; color: #8b949e; }
+.league-info { font-size: 12px; color: #58a6ff; font-weight: bold; }
+
+/* Balans */
+.score-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#balance {
+    font-size: 56px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Tanga */
+.coin-area {
+    flex-grow: 1; /* O'rtadagi bo'shliqni to'ldiradi */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#coin {
+    width: 260px;
+    height: 260px;
+    cursor: pointer;
+    transition: transform 0.08s ease;
+}
+
+#coin img { width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+#coin:active { transform: scale(0.94); }
+
+/* Energiya */
+.stats-footer {
+    padding-bottom: 20px;
+}
+
+.energy-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.energy-icon { font-size: 24px; }
+.energy-text { font-size: 18px; font-weight: bold; }
+
+/* +1 Effekt */
+.plus-one {
+    position: fixed;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+    pointer-events: none;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100px); opacity: 0; }
+}
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden; /* Ichidagi chiziq chiqib ketmasligi uchun */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#energy-bar {
+    width: 100%; /* Boshida 100% bo'ladi */
+    height: 100%;
+    background: linear-gradient(90deg, #f1c40f, #e67e22);
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+    transition: width 0.3s ease; /* Chiziq silliq qisqarishi uchun */
+}
+#coin {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.05s ease;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Tanga ko'rinishi */
+    background: radial-gradient(circle, #f1c40f 0%, #f39c12 70%, #d35400 100%); /* Oltin gradient */
+    border-radius: 50%; /* Aylana qilish */
+    
+    /* Qalin chekka (border) effekti */
+    border: 15px solid rgba(255, 255, 255, 0.2); 
+    
+    /* Soyalar (hajmdor ko'rsatish uchun) */
+    box-shadow: 
+        0 0 50px rgba(243, 156, 18, 0.5), /* Tashqi nur */
+        inset 0 0 20px rgba(0, 0, 0, 0.3); /* Ichki soya */
+        
+    position: relative;
+    z-index: 10;
+}
+
+/* Romb belgisi stili */
+.coin-romb {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.4); /* Yarim shaffof oq */
+    transform: rotate(45deg); /* Romb shakliga keltirish */
+    border-radius: 10px; /* Burchaklarni biroz yumshatish */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Belgiga soya */
+}
+
+/* Bosilganda effekt */
+#coin:active {
+    transform: scale(0.92); /* Biroz kichrayish */
+}
+/* 1. Tanganing z-index-ini biroz pasaytiramiz */
+#coin {
+    /* ... avvalgi kodlar ... */
+    position: relative;
+    z-index: 5; /* 10 edi, 5 ga tushirdik */
+}
+
+/* 2. +1 effektini eng ustki qatlamga chiqaramiz */
+.plus-one {
+    position: fixed;
+    color:rgba(255, 215, 0, 0.9); /* Yarim shaffof oltin rang (Gold) */
+
+    font-size: 25px; /* Kattaroq qildik */
+    font-weight: 800;
+    pointer-events: none;
+    z-index: 9999; /* Eng yuqori qatlam */
+    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Ko'rinishi oson bo'lishi uchun soya */
+    animation: fadeUp 0.8s ease-out forwards;
+}
+.coin-romb {
+    width: 80px;
+    height: 80px;
+    background: transparent; /* Ichini shaffof qilish */
+    transform: rotate(45deg);
+    border-radius: 10px;
+    border: 12px solid rgba(255, 215, 0, 0.6); /* Oltin rangli hoshiya */
+    box-shadow: 
+        0 0 15px rgba(218, 165, 32, 0.5), /* Oltin nur */
+        inset 0 0 10px rgba(0, 0, 0, 0.2); /* Ichki soya */
+}
