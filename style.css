@@ -52,6 +52,52 @@ body {
     font-weight: 800;
     margin: 0;
 }
+/* Tangani o'rab turgan asosiy maydon */
+.coin-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Tanga atrofidagi bo'shliq balandligi */
+    margin: 40px 0;
+}
+
+/* Tanga konteyneri */
+#coin {
+    position: relative;
+    width: 250px;  /* Tangangizning kattaligi */
+    height: 250px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease; /* Bosganda reaksiya */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ichidagi rasm.png uchun */
+#coin img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Rasmdagi o'sha sariq nurni (glow) shu yerda qaytaramiz */
+    filter: drop-shadow(0 0 20px rgba(255, 170, 0, 0.6));
+    border-radius: 50%;
+}
+
+/* Bosganda tanga biroz kichrayishi uchun (click effekti) */
+#coin:active {
+    transform: scale(0.92);
+}
+
+/* Tanga orqasidagi qo'shimcha yumshoq nur (ixtiyoriy) */
+#coin::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, transparent 70%);
+    z-index: -1;
+}
 
 /* Energiya */
 .stats-footer {
