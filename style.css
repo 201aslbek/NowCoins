@@ -53,24 +53,6 @@ body {
     margin: 0;
 }
 
-/* Tanga */
-.coin-area {
-    flex-grow: 1; /* O'rtadagi bo'shliqni to'ldiradi */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#coin {
-    width: 260px;
-    height: 260px;
-    cursor: pointer;
-    transition: transform 0.08s ease;
-}
-
-#coin img { width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
-#coin:active { transform: scale(0.94); }
-
 /* Energiya */
 .stats-footer {
     padding-bottom: 20px;
