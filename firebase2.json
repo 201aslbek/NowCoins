@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nowcoins-16e77",
+  "private_key_id": "a2e816d4d5cc6580f35bc2b5f49bebd5893abd68",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC6A9f7NbSteAtz\nAI3GNa11RgXzafnout9j8LcZj0AitRjC1+e037k8dBXJnN5wwtx8JIZddJtEev4y\nBqXwwewTtgJPO8/nMLTMTPmg29GCxNWel2Qe54dhtggtRLDOPuaWoRsHoJq/cGtD\naYyHV9o4ePq2BVmMDv+NZiJ+44NeK76lgAMMvyv9bdyFpxjaH0LOR/AmrCzJxXJh\nTsq1OdMCHpN1rc9BLf7CIU19w7hlQsRbfvKUodI6/vPMIhh+Q1mBgwbg9jVl4SLM\n086T0FqUzxIlMaqmtP3qZmMoY1ZhvZu7mba7nkVgl6vUJVXlUT0VxEZ4gRrSPfkl\nI5reU7nzAgMBAAECggEAHwAI/Jqks8wvzEipWAEWGVdEIp7kwT5zgEpbmWzgOWiI\n6d/lg6VNT5/hCaqU/6HZ8O59XhHS1oTQ3DFzcj4/Q8GvfNjw+wyI9QtXBtHbhrmb\nCEUesG/Rhh06G6E4/gZJk4zh3lGLuJ/ZoHB0tRGVEphG4BLgK5FMUZpV4WO1Pvou\nbhbEJW5FfDmuX4uzWNOqBGFV+hRIRY2Wus6K9PjBVHVaSi5ubLvIpDOpsCLGJK2c\nBpXjYDXM1TfQI1jfAYzQH1OKj5Nx6rFP1StnTVGKoMFn6CW4MLwrkkQRy2I3Ak00\nhOSZvwi3ZoYK0pWveilBN5KQ+tLkrpxliPaaWy7fgQKBgQDqUjeT658TDu6gR477\nY3DOU2tXD2HtDSfKlO9M2iWQTS+fii5W2NhBb/0OsGhgoZyJgblhztytKKbpdHsE\nSERFBUviuh0VYo0YJoHaDZVzuIMttt0ioyGcsBBJiK0ZhzNq/YMB3BMjnLTSkCOE\nMsPBmt8GzgsuIQ+UWgUEc0cP0wKBgQDLOYTaqZ+5bgY6wrW+kgjQ1Anfp+b0FGvd\nUtX1H9sQANwLIqgBZ3x5rSvXlPOweFKJUdP1Or/qu1LOH8Ame8FBfBUoTDWsgLKg\n+cfXiXHkCnhpJxWpAV0uiu2DoKYyP0Z6wqgPTyYZlFFy6qVf4bHTx0++BBgWMM3q\naQw6NuR5YQKBgQDP6cnk15IbkAlOcJA/IToL6Vr6Mez7MMwY5dP7xijEhKh4EF0T\ntG8WiS7qZL8I1v2VyWRbk/idMNABn9gzsYfaElwGPovl2L9HKYvYlmsA9jx3SKWo\nwUTmyhZ5mOu3Fg8apP0knkjhNYAAweKxv3WRCUFRwWuML8uqH8IJ89ue/wKBgQDD\nhm2qK/T+5TqdImTWG47bzIZLZzGvuE4nPOGZ27JabVlIZWmbIEQElXZPDoJ/UOSo\nNdBmasXnQ59hre6jmAHRzV5VzSz+8Tvr4SZC23x2WRSMpwwR9LwAYa4vLEt6oKJg\nzhP/1rjjd2390ICYBX+gMG0qdqnt/7q+Q59+Cv47QQKBgDxqB9Xl9JV/wJLLXiRl\nmivjrKfFHYfEpiZc+ccd+kGII0M7xwORYr0KPT/HV09KjLLJejrpmqZxxXvUFkQq\n/JdFUWQYJIwLsx4mUVGSkoukxpm280l5cwsI5CSMjX5EZZtbjC8ZgN3WARXEkM64\nbeGSHmucbW0iwRnpEXmBGYJs\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@nowcoins-16e77.iam.gserviceaccount.com",
+  "client_id": "115188631026263206223",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40nowcoins-16e77.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
