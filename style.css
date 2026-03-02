@@ -1,218 +1,80 @@
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
 
 body {
-    background: #0d1117; /* To'q ko'k-qora fon */
+    background: #0b0e14;
     color: white;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
-    padding: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
 }
 
-.game-container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
+/* Sahifalar boshqaruvi */
+.page {
+    display: none;
     flex-direction: column;
-    justify-content: space-between; /* Elementlarni teng tarqatadi */
+    height: 100vh;
     padding: 20px;
+    padding-bottom: 180px; /* Menyu va bar uchun joy */
 }
+.page.active { display: flex; }
 
-/* Profil Bar */
-.user-bar {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* User Bar */
+.user-bar { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
 .user-info { display: flex; align-items: center; gap: 10px; }
-.user-avatar { width: 42px; height: 42px; border-radius: 12px; overflow: hidden; background: #21262d; }
-.user-avatar img { width: 100%; height: 100%; object-fit: cover; }
-#display-name { font-size: 14px; font-weight: 600; }
-.user-id-label { font-size: 11px; color: #8b949e; }
-.league-info { font-size: 12px; color: #58a6ff; font-weight: bold; }
+.user-avatar { width: 40px; height: 40px; border-radius: 10px; }
+#display-name { font-size: 14px; font-weight: bold; }
+.user-id { font-size: 10px; color: #888; }
+.league-badge { color: #58a6ff; font-size: 12px; font-weight: bold; }
 
 /* Balans */
-.score-container {
-    text-align: center;
-    margin-top: 30px;
-}
+.score-section { text-align: center; margin-top: 40px; }
+#balance { font-size: 60px; margin: 0; letter-spacing: -2px; }
 
-#balance {
-    font-size: 56px;
-    font-weight: 800;
-    margin: 0;
-}
-/* Tangani o'rab turgan asosiy maydon */
-.coin-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Tanga atrofidagi bo'shliq balandligi */
-    margin: 40px 0;
-}
+/* Tanga */
+.coin-area { flex-grow: 1; display: flex; justify-content: center; align-items: center; }
+#coin { width: 280px; height: 280px; transition: transform 0.05s; }
+#coin img { width: 100%; filter: drop-shadow(0 0 30px rgba(255, 165, 0, 0.4)); }
+#coin:active { transform: scale(0.95); }
 
-/* Tanga konteyneri */
-#coin {
-    position: relative;
-    width: 250px;  /* Tangangizning kattaligi */
-    height: 250px;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.1s ease; /* Bosganda reaksiya */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Ichidagi rasm.png uchun */
-#coin img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* Rasmdagi o'sha sariq nurni (glow) shu yerda qaytaramiz */
-    filter: drop-shadow(0 0 20px rgba(255, 170, 0, 0.6));
-    border-radius: 50%;
-}
-
-/* Bosganda tanga biroz kichrayishi uchun (click effekti) */
-#coin:active {
-    transform: scale(0.92);
-}
-
-/* Tanga orqasidagi qo'shimcha yumshoq nur (ixtiyoriy) */
-#coin::before {
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, transparent 70%);
-    z-index: -1;
-}
-
-/* Energiya */
+/* Energiya Bari (Menyudan tepada) */
 .stats-footer {
-    padding-bottom: 20px;
+    position: fixed;
+    bottom: 115px; /* Menyu ustida turishi uchun */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
 }
-
-.energy-info {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-}
-
-.energy-icon { font-size: 24px; }
+.energy-info { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .energy-text { font-size: 18px; font-weight: bold; }
+.progress-container { width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+#energy-bar { height: 100%; background: linear-gradient(90deg, #f39c12, #e67e22); width: 70%; transition: width 0.3s; }
+
+/* Bottom Nav (Liquid Glass) */
+.nav {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 94%;
+    max-width: 420px;
+    height: 75px;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+}
+.tab { display: flex; flex-direction: column; align-items: center; flex: 1; color: #94a3b8; font-size: 10px; cursor: pointer; position: relative; }
+.nav-sticker { width: 30px; height: 30px; margin-bottom: 2px; transition: 0.2s; }
+.tab.active { color: white; }
+.tab.active .nav-sticker { transform: scale(1.2) translateY(-5px); }
+.nav-badge { position: absolute; top: -5px; right: 10px; background: red; color: white; font-size: 8px; padding: 2px 5px; border-radius: 5px; font-weight: bold; }
 
 /* +1 Effekt */
-.plus-one {
-    position: fixed;
-    color: #fff;
-    font-size: 28px;
-    font-weight: 800;
-    pointer-events: none;
-    animation: fadeUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100px); opacity: 0; }
-}
-.progress-container {
-    width: 100%;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin-top: 10px;
-    overflow: hidden; /* Ichidagi chiziq chiqib ketmasligi uchun */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#energy-bar {
-    width: 100%; /* Boshida 100% bo'ladi */
-    height: 100%;
-    background: linear-gradient(90deg, #f1c40f, #e67e22);
-    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
-    transition: width 0.3s ease; /* Chiziq silliq qisqarishi uchun */
-}
-#coin {
-    width: 250px;
-    height: 250px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.05s ease;
-    -webkit-tap-highlight-color: transparent;
-    
-    /* Tanga ko'rinishi */
-    background: radial-gradient(circle, #f1c40f 0%, #f39c12 70%, #d35400 100%); /* Oltin gradient */
-    border-radius: 50%; /* Aylana qilish */
-    
-    /* Qalin chekka (border) effekti */
-    border: 15px solid rgba(255, 255, 255, 0.2); 
-    
-    /* Soyalar (hajmdor ko'rsatish uchun) */
-    box-shadow: 
-        0 0 50px rgba(243, 156, 18, 0.5), /* Tashqi nur */
-        inset 0 0 20px rgba(0, 0, 0, 0.3); /* Ichki soya */
-        
-    position: relative;
-    z-index: 10;
-}
-
-/* Romb belgisi stili */
-.coin-romb {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.4); /* Yarim shaffof oq */
-    transform: rotate(45deg); /* Romb shakliga keltirish */
-    border-radius: 10px; /* Burchaklarni biroz yumshatish */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Belgiga soya */
-}
-
-/* Bosilganda effekt */
-#coin:active {
-    transform: scale(0.92); /* Biroz kichrayish */
-}
-/* 1. Tanganing z-index-ini biroz pasaytiramiz */
-#coin {
-    /* ... avvalgi kodlar ... */
-    position: relative;
-    z-index: 5; /* 10 edi, 5 ga tushirdik */
-}
-
-/* 2. +1 effektini eng ustki qatlamga chiqaramiz */
-.plus-one {
-    position: fixed;
-    color:rgba(255, 215, 0, 0.9); /* Yarim shaffof oltin rang (Gold) */
-
-    font-size: 25px; /* Kattaroq qildik */
-    font-weight: 800;
-    pointer-events: none;
-    z-index: 9999; /* Eng yuqori qatlam */
-    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Ko'rinishi oson bo'lishi uchun soya */
-    animation: fadeUp 0.8s ease-out forwards;
-}
-.coin-romb {
-    width: 80px;
-    height: 80px;
-    background: transparent; /* Ichini shaffof qilish */
-    transform: rotate(45deg);
-    border-radius: 10px;
-    border: 12px solid rgba(255, 215, 0, 0.6); /* Oltin rangli hoshiya */
-    box-shadow: 
-        0 0 15px rgba(218, 165, 32, 0.5), /* Oltin nur */
-        inset 0 0 10px rgba(0, 0, 0, 0.2); /* Ichki soya */
-}
+.plus-one { position: fixed; color: #ffd700; font-size: 28px; font-weight: bold; pointer-events: none; animation: fadeUp 0.8s forwards; z-index: 2000; }
+@keyframes fadeUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-100px); opacity: 0; } }
