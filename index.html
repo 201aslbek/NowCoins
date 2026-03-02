@@ -1,60 +1,78 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NowCoins</title>
+    <title>NowCoins Clicker</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="game-container">
-        <div class="user-bar">
-            <div class="user-info">
-                <div class="user-avatar" id="user-avatar">
-                    <img src="https://via.placeholder.com/40" id="avatar-img" alt="avatar">
+        <div id="home" class="page active">
+            <div class="user-bar">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" id="avatar-img" class="user-avatar">
+                    <div class="user-details">
+                        <div id="display-name">Aslbek Uz</div>
+                        <div class="user-id">ID: <span id="display-id">2066322228</span></div>
+                    </div>
                 </div>
-                <div class="user-details">
-                    <div id="display-name">User</div>
-                    <div class="user-id-label">ID: <span id="display-id"></span></div>
+                <div class="league-badge">🏆 Rating</div>
+            </div>
+
+            <div class="score-section">
+                <h1 id="balance">7,649</h1>
+            </div>
+
+            <div class="coin-area">
+                <div id="coin" onclick="handleTap(event)">
+                    <img src="NowCoins.png" alt="Coin">
                 </div>
             </div>
-            <div class="league-info">
-                🏆 <span id="league-name">Rating</span>
+
+            <div class="stats-footer">
+                <div class="energy-info">
+                    <span class="energy-icon">⚡️</span>
+                    <div class="energy-text"><span id="energy">350</span> / 500</div>
+                </div>
+                <div class="progress-container">
+                    <div id="energy-bar"></div>
+                </div>
             </div>
         </div>
 
-        <div class="score-container">
-            <h1 id="balance">0</h1>
-        </div>
+        <div id="services" class="page"><h1>🚀 Boost</h1></div>
+        <div id="friends" class="page"><h1>👥 Do'stlar</h1></div>
+        <div id="Missions" class="page"><h1>✅ Vazifalar</h1></div>
+        <div id="profile" class="page"><h1>👤 Hamyon</h1></div>
+    </div>
 
-
-<div class="coin-area">
-    <div id="coin" onclick="handleTap(event)">
-        <img src="NowCoins.png" 
-             alt="Coin" 
-             id="coin-image">
-    </div>
-</div>
-
-        <div class="stats-footer">
-            <div class="energy-info">
-                <span class="energy-icon">⚡️</span>
-                <div class="energy-text">
-                    <span id="energy">500</span> / 500
-                </div><div class="stats-footer">
-    <div class="energy-info">
+    <nav class="nav">
+        <div class="tab active" data-page="home">
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Coin.png" class="nav-sticker">
+            <span>Bosish</span>
         </div>
-    </div>
-    <div class="progress-container">
-        <div id="energy-bar"></div>
-    </div>
-</div>
-            </div>
+        <div class="tab" data-page="Missions">
+            <div class="nav-badge">NEW</div>
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Memo.png" class="nav-sticker">
+            <span>Vazifalar</span>
         </div>
-    </div>
+        <div class="tab" data-page="services">
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Vehicles/Rocket.png" class="nav-sticker">
+            <span>Boost</span>
+        </div>
+        <div class="tab" data-page="friends">
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/People/People.png" class="nav-sticker">
+            <span>Do'st</span>
+        </div>
+        <div class="tab" data-page="profile">
+            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Wallet.png" class="nav-sticker">
+            <span>Yechish</span>
+        </div>
+    </nav>
 
     <script src="script.js"></script>
-    <script type="module" src="firebase.js"></script>
 </body>
 </html>
